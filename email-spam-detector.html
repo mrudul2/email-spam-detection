@@ -2,6 +2,8 @@
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
       <style>
       /* Global styles */
@@ -109,10 +111,18 @@
           const result = await response.json();
     
           if (result.isSpam === 1) {
-            alert(`This email is spam! Number of reports: ${result.no_of_reports}`);
+            Swal.fire(
+              'Spam Clasified',
+              `This email is spam! Number of reports: ${result.no_of_reports}`,
+              'info'
+            )
           } 
           else {
-            alert(`This email is not spam. Number of reports: ${result.no_of_reports}`);
+            Swal.fire(
+              'Not a Spam',
+              `This email is not a spam! Number of reports: ${result.no_of_reports}`,
+              'info'
+            )
           }
         });
       </script>
